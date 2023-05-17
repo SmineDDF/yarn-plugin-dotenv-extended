@@ -1,12 +1,15 @@
 import { Hooks } from "@yarnpkg/core";
-import { config } from "dotenv";
+import dotenvExtended from "dotenv-extended";
 import findConfig from "find-config";
 
 export const hooks: Hooks = {
   async setupScriptEnvironment(_project, scriptEnv) {
-    const env = config({
-      path: findConfig(".env") ?? undefined,
+    const variables = dotenvExtended.load({
+      path: findConfig('.env') || undefined,
+      defaults: findConfig('.env.defaults') || undefined,
+      schema: findConfig('.env.schema') || undefined,
     });
-    Object.assign(scriptEnv, env.parsed);
+
+    Object.assign(scriptEnv, variables);
   },
 };

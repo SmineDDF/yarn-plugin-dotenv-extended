@@ -1,8 +1,10 @@
-.yarn/*
-!.yarn/cache
-!.yarn/releases
+.yarn/cache
 
 /bundles/
 
 .vim/
 .vscode/
+
+node_modules
+
+yarn-error.log

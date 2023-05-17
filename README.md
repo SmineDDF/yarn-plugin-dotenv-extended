@@ -5,7 +5,7 @@
 ## Installation
 
 ```sh
-yarn plugin import https://unpkg.com/yarn-plugin-dotenv/bundles/@yarnpkg/plugin-dotenv.js
+yarn plugin import <URL_to_plugin_change_after_release>
 ```
 
 ## Usage
