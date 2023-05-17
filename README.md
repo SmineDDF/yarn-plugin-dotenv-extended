@@ -5,7 +5,7 @@
 ## Installation
 
 ```sh
-yarn plugin import <URL_to_plugin_change_after_release>
+yarn plugin import https://github.com/SmineDDF/yarn-plugin-dotenv-extended/releases/download/1.0.0/plugin-dotenv-extended.js
 ```
 
 ## Usage
