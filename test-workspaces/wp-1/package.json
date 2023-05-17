@@ -1,0 +1,7 @@
+{
+  "name": "wp-1",
+  "packageManager": "yarn@3.5.1",
+  "scripts": {
+    "test-script": "echo $TEST_VARIABLE"
+  }
+}
