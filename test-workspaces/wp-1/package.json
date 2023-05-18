@@ -3,8 +3,7 @@
   "packageManager": "yarn@3.5.1",
   "scripts": {
     "test-script": "node ./test.js",
-    "test-inline-script": "[ -n $WORKSPACE_VARIABLE ] && echo OK || echo ERR && exit 1",
-    "e": "printenv"
+    "test-inline-script": "[ -n $WORKSPACE_VARIABLE ] && echo OK || (echo ERR && exit 1)"
   },
   "workspaces": [
     "test-nested-workspaces/*"

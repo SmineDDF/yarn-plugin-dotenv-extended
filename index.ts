@@ -37,6 +37,7 @@ function findIntermediaryDirs(from: string, to: string): string[] {
 export const hooks: Hooks = {
   async setupScriptEnvironment(_project, scriptEnv) {
     const directoriesToCheck = findIntermediaryDirs(scriptEnv.PROJECT_CWD, scriptEnv.INIT_CWD);
+    const loadedEnvironment = {};
 
     directoriesToCheck.forEach((dir) => {
       const variables = dotenvExtended.load({
@@ -45,7 +46,11 @@ export const hooks: Hooks = {
         schema: findConfig('.env.schema', { cwd: dir }) || undefined,
       });
       
-      Object.assign(scriptEnv, variables);
-    })
+      Object.assign(loadedEnvironment, variables);
+    });
+
+    // overriding loaded variables with variables already present in env
+    Object.assign(loadedEnvironment, scriptEnv);
+    Object.assign(scriptEnv, loadedEnvironment);
   },
 };

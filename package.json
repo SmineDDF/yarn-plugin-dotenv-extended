@@ -18,7 +18,7 @@
   "scripts": {
     "build": "builder build plugin && yarn plugin import ./bundles/@yarnpkg/plugin-dotenv-extended.js",
     "test-script": "node ./test.js",
-    "test-inline-script": "[ -n $TEST_VARIABLE ] && echo OK || echo ERR && exit 1",
+    "test-inline-script": "[ -n $TEST_VARIABLE ] && echo OK || (echo ERR && exit 1)",
     "test": "echo run ./test.bash instead && false"
   },
   "dependencies": {
