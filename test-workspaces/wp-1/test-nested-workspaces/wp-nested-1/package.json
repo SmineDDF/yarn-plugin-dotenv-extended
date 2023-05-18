@@ -1,12 +1,9 @@
 {
-  "name": "wp-1",
+  "name": "wp-nested-1",
   "packageManager": "yarn@3.5.1",
   "scripts": {
     "test-script": "node ./test.js",
     "test-inline-script": "[ -n $WORKSPACE_VARIABLE ] && echo OK || echo ERR && exit 1",
-    "e": "printenv"
-  },
-  "workspaces": [
-    "test-nested-workspaces/*"
-  ]
+    "printenv": "printenv"
+  }
 }

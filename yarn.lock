@@ -1975,6 +1975,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"wp-nested-1@workspace:test-workspaces/wp-1/test-nested-workspaces/wp-nested-1":
+  version: 0.0.0-use.local
+  resolution: "wp-nested-1@workspace:test-workspaces/wp-1/test-nested-workspaces/wp-nested-1"
+  languageName: unknown
+  linkType: soft
+
 "wrappy@npm:1":
   version: 1.0.2
   resolution: "wrappy@npm:1.0.2"
