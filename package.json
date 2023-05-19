@@ -18,6 +18,8 @@
   "scripts": {
     "build": "builder build plugin && yarn plugin import ./bundles/@yarnpkg/plugin-dotenv-extended.js",
     "test-script": "node ./test.js",
+    "test-inline-overwrite-script": "MANUAL_OVERWRITE_TEST=true OVERWRITE_VARIABLE=OVERWRITTEN node ./test.js",
+    "test-inline-overwrite-script-crossenv": "cross-env MANUAL_OVERWRITE_TEST=true OVERWRITE_VARIABLE=OVERWRITTEN node ./test.js",
     "test-inline-script": "[ -n $TEST_VARIABLE ] && echo OK || (echo ERR && exit 1)",
     "test": "echo run ./test.bash instead && false"
   },
@@ -30,6 +32,7 @@
     "@types/node": "^16.0.0",
     "@yarnpkg/builder": "^3.2.7",
     "@yarnpkg/core": "^3.5.0",
+    "cross-env": "^7.0.3",
     "typescript": "^5.0.4"
   },
   "packageManager": "yarn@3.5.1",
