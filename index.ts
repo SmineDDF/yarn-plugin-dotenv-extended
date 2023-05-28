@@ -118,8 +118,6 @@ export const hooks: Hooks = {
         delete extra.env[variable];
       })
 
-      Object.assign(extra.env, identifiedManuallySetEnvVariables);
-
       return executor();
     }
 
