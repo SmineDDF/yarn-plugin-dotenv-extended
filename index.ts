@@ -79,7 +79,7 @@ function findEnvVariablesInScript(script: string): string[] {
 }
 
 export const hooks: Hooks = {
-  // loads .env files and injects their contents into environment
+  // load .env files and inject their contents into environment
   async setupScriptEnvironment(_project, scriptEnv) {
     const directoriesToCheck = findIntermediaryDirs(scriptEnv.PROJECT_CWD, scriptEnv.INIT_CWD);
     const loadedEnvironment = {};
@@ -102,14 +102,14 @@ export const hooks: Hooks = {
   // allow overwriting variables in package.json scripts by removing variables
   // which are set in the script from script scope
   //
-  // e.g. it allows creating scripts like 
+  // e.g. it allows creating scripts with hardcoded env variables like 
   //   "build": "NODE_ENV=production tsc"
-  // even when NODE_ENV is defined in .env
+  // even when NODE_ENV=development is defined in .env
   //
-  // (original inability to do that stems from the fact that variables which are
-  //  set in  `setupScriptEnvironment` take precedence before the variables
-  //  declared in scripts, which is expectable, but counter-intuitive from
-  //  user's standpoint)
+  // original inability to do that with that plugin enabled stems from the fact that 
+  // variables which are set in  `setupScriptEnvironment` take precedence
+  // before the variables declared in scripts, which is expectable,
+  // but counter-intuitive from user's standpoint as it breaks existing scripts
   async wrapScriptExecution(executor, project, locator, scriptName, extra) {
     const scriptExecutorWithEnvManualOverwrite = async () => {
       const identifiedManuallySetEnvVariables = findEnvVariablesInScript(extra.script);
